@@ -9,12 +9,15 @@ public class LaserShooter: ClickSpawner {
 
     protected override GameObject spawnObject() {
         GameObject newObject = base.spawnObject();  // base = super
+        if (newObject)
+        {
+            // Modify the text field of the new object.
+            ScoreAdder newObjectScoreAdder = newObject.GetComponent<ScoreAdder>();
+            if (newObjectScoreAdder)
+                newObjectScoreAdder.SetScoreField(scoreField);
 
-        // Modify the text field of the new object.
-        ScoreAdder newObjectScoreAdder = newObject.GetComponent<ScoreAdder>();
-        if (newObjectScoreAdder)
-            newObjectScoreAdder.SetScoreField(scoreField);
-
-        return newObject;
+            return newObject;
+        }
+        return null;
     }
 }

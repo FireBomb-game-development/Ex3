@@ -15,7 +15,7 @@ public class Health : MonoBehaviour
    [SerializeField] int duration;
    [Tooltip("Every object tagged with this tag will trigger game over")]
    [SerializeField] string triggeringTag;
-    bool shild = false;
+    static bool shild = false;
 
 
     // Start is called before the first frame update
@@ -24,24 +24,26 @@ public class Health : MonoBehaviour
     {
         
     }
-    public IEnumerator Hit(int damage)
+    public void Hit(int damage)
     {
-        HP -= damage;
+        
+        
         
         float currentTimeScale = Time.timeScale;
         Debug.Log("Current Time Scale: " + currentTimeScale);
         if (!shild)
         {
+            HP -= damage;
 
 
             Debug.Log("Shield on!");
             shild = true;
 
-            for (int i = 0; i < duration; i++)
-            {
+            //for (int i = 0; i < duration; i++)
+            //{
                
-                yield return new WaitForSeconds(1);
-            }
+            //    yield return new WaitForSeconds(1);
+            //}
 
             Debug.Log("Shield gone!");
             shild = false;

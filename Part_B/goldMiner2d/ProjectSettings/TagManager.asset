@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - bigGold
+  - bigRock
+  - smallRock
+  - smallGold
+  - middleGold
+  - daimond1
+  - deliverItem
   layers:
   - Default
   - TransparentFX

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f24d98d36992e46d4b6aa67dc026c356
+guid: a8087ad3b7123407da97785f33733b7c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,34 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bigGold
+      name: Rope_0
       rect:
         serializedVersion: 2
-        x: 214
-        y: 5
-        width: 97
-        height: 77
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 22c65871b88894af1a2886dfd3e95f8a
-      internalID: 2089002385
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bigRock
-      rect:
-        serializedVersion: 2
-        x: 147
-        y: 86
-        width: 72
-        height: 62
+        x: 943
+        y: 724
+        width: 57
+        height: 187
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,113 +150,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be8b1d497559b4871b8c8fb5516cae3e
-      internalID: 424142784
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: smallRock
-      rect:
-        serializedVersion: 2
-        x: 228
-        y: 93
-        width: 62
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ea769f7cba190468b891707d190412e6
-      internalID: -2120805701
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: smallGold
-      rect:
-        serializedVersion: 2
-        x: 316
-        y: 103
-        width: 35
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8a01b4efcff29483282f146dbf5aee1d
-      internalID: -1053213739
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: daimond1
-      rect:
-        serializedVersion: 2
-        x: 376
-        y: 98
-        width: 59
-        height: 45
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2a04b21907e194026a181fae8b23ff57
-      internalID: -1299253332
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: middleGold
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 14
-        width: 60
-        height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 035c572a5168247ca987a245c44d1205
-      internalID: -1842487245
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: daimond2
-      rect:
-        serializedVersion: 2
-        x: 157
-        y: 15
-        width: 50
-        height: 58
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b409715e2c4f24298aa21cbf8cba41d5
-      internalID: -74823099
+      spriteID: 0f94b69b4cfb6455db8d456d8816fc59
+      internalID: -395710195
       vertices: []
       indices: 
       edges: []
@@ -293,13 +167,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bigGold: 2089002385
-      bigRock: 424142784
-      daimond1: -1299253332
-      daimond2: -74823099
-      middleGold: -1842487245
-      smallGold: -1053213739
-      smallRock: -2120805701
+      Rope_0: -395710195
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

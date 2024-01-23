@@ -25,7 +25,7 @@ public class DestroyOnTrigger2D : MonoBehaviour {
             ShieldThePlayer shild = other.transform.GetComponent<ShieldThePlayer>();
             if (health != null)
             {
-                StartCoroutine(health.Hit(1));
+               health.Hit(1);
                 
             }
         }

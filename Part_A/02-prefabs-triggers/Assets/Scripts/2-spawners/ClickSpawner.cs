@@ -11,6 +11,10 @@ public class ClickSpawner: MonoBehaviour {
     [SerializeField] protected InputAction spawnAction = new InputAction(type: InputActionType.Button);
     [SerializeField] protected GameObject prefabToSpawn;
     [SerializeField] protected Vector3 velocityOfSpawnedObject;
+    [SerializeField] protected int duration ;
+    [SerializeField] public  bool delay;
+    
+
 
     void OnEnable()  {
         spawnAction.Enable();
@@ -24,22 +28,61 @@ public class ClickSpawner: MonoBehaviour {
         Debug.Log("Spawning a new object");
 
         // Step 1: spawn the new object.
-        Vector3 positionOfSpawnedObject = transform.position;  // span at the containing object position.
-        Quaternion rotationOfSpawnedObject = Quaternion.identity;  // no rotation.
-        GameObject newObject = Instantiate(prefabToSpawn, positionOfSpawnedObject, rotationOfSpawnedObject);
-
-        // Step 2: modify the velocity of the new object.
-        Mover newObjectMover = newObject.GetComponent<Mover>();
-        if (newObjectMover) {
-            newObjectMover.SetVelocity(velocityOfSpawnedObject);
+        if (delay)
+        {
+            delayHandler();
         }
+        else
+        {
 
-        return newObject;
+            Vector3 positionOfSpawnedObject = transform.position;  // span at the containing object position.
+            Quaternion rotationOfSpawnedObject = Quaternion.identity;  // no rotation.
+            GameObject newObject = Instantiate(prefabToSpawn, positionOfSpawnedObject, rotationOfSpawnedObject);
+            delay = true;
+
+            // Step 2: modify the velocity of the new object.
+            Mover newObjectMover = newObject.GetComponent<Mover>();
+            if (newObjectMover)
+            {
+                newObjectMover.SetVelocity(velocityOfSpawnedObject);
+            }
+
+            return newObject;
+
+
+        }
+        return null;
+
     }
     
-    private void Update() {
-        if (spawnAction.WasPressedThisFrame()) {
-            spawnObject();
+    IEnumerator ExampleCoroutine(int n)
+    {
+        
+        yield return new WaitForSeconds(n);
+
+    }
+    private void delayHandler(){
+        if (delay)
+        {
+            StartCoroutine(ExampleCoroutine(duration));
+            delay = false;
+
         }
+
+    }
+
+    private void Update()
+    {
+        
+        if (spawnAction.WasPressedThisFrame()) {
+        
+           
+                spawnObject();
+          
+
+        }
+        
+
+
     }
 }
