@@ -1,12 +1,9 @@
-using System.Buffers;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class HookMovment : MonoBehaviour
+public class HookMovement : MonoBehaviour
 {
-    //rotate hook angles
     [SerializeField] float min_Z = -55f, max_Z = 55f;
     [SerializeField] float rotateSpeed = 5f;
     [SerializeField] float rotate_angle = 5f;
@@ -19,7 +16,6 @@ public class HookMovment : MonoBehaviour
     private bool moveDown;
     [SerializeField] protected InputAction hookButton = new InputAction(type: InputActionType.Button);
 
-
     private RopeRenderer ropeRenderer;
 
     private void Awake()
@@ -27,19 +23,18 @@ public class HookMovment : MonoBehaviour
         ropeRenderer = GetComponent<RopeRenderer>();
     }
 
-
     // Start is called before the first frame update
     void Start()
     {
         inital_Y = transform.position.y;
         inital_Move_Speed = moveSpeed;
         canRotate = true;
-
     }
+
     void Rotate()
     {
         if (!canRotate) return;
-        //change rotation sides
+
         if (rotateRight)
         {
             rotate_angle += rotateSpeed * Time.deltaTime;
@@ -50,10 +45,10 @@ public class HookMovment : MonoBehaviour
         }
 
         transform.rotation = Quaternion.AngleAxis(rotate_angle, Vector3.forward);
+
         if (rotate_angle >= max_Z) rotateRight = false;
         else if (rotate_angle <= min_Z) rotateRight = true;
     }
-
 
     void moveRope()
     {
@@ -61,10 +56,7 @@ public class HookMovment : MonoBehaviour
 
         if (!canRotate)
         {
-            //SoundManager.instance.RopStretch(True);
-            //hook por
             Vector3 pos = transform.position;
-            // moves the hook to the object
 
             if (moveDown)
             {
@@ -84,15 +76,11 @@ public class HookMovment : MonoBehaviour
                 canRotate = true;
                 moveSpeed = inital_Move_Speed;
             }
-            //resets the speed
 
             ropeRenderer.RenderLine(pos, true);
-        }    //SoundManager.instance.RopeStretch(false);
-
-
-     
-
+        }
     }
+
     void getInput()
     {
         if (Input.GetMouseButtonDown(0))
@@ -106,25 +94,38 @@ public class HookMovment : MonoBehaviour
         }
     }
 
+    // Move the hook upward when this method is called
+    public void MoveHookUp()
+    {
+        StartCoroutine(MoveHookUpCoroutine());
+    }
+
+    private IEnumerator MoveHookUpCoroutine()
+    {
+        canRotate = false;
+        moveDown = false;
+
+        while (transform.position.y < inital_Y)
+        {
+            Vector3 pos = transform.position;
+            pos += transform.up * Time.deltaTime * moveSpeed;
+            transform.position = pos;
+
+            ropeRenderer.RenderLine(pos, true);
+
+            yield return null;
+        }
+
+        canRotate = true;
+        moveSpeed = inital_Move_Speed;
+    }
 
     // Update is called once per frame
     void Update()
     {
         Rotate();
         getInput();
-
-        //if (hookButton.WasPressedThisFrame())
-        //{
-        //    Debug.Log("button pree");
-        //    if (canRotate)
-        //    {
-        //        canRotate = false;
-        //        moveDown = true;
-        //    }
-        //}
         moveRope();
-
-
 
     }
 }
